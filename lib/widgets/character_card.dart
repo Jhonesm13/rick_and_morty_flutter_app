@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:rick_and_morty_flutter/models/character_list.dart';
+import 'package:rick_and_morty_flutter/widgets/favorite_button.dart';
 
 class CharacterCard extends StatelessWidget {
   const CharacterCard({required this.character, required this.onTap, Key? key})
@@ -16,7 +17,7 @@ class CharacterCard extends StatelessWidget {
       height: 160,
       child: Card(
         clipBehavior: Clip.antiAlias,
-        margin: EdgeInsets.zero, 
+        margin: EdgeInsets.zero,
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(10)),
         ),
@@ -27,13 +28,24 @@ class CharacterCard extends StatelessWidget {
               SizedBox(
                 height: 120,
                 width: double.infinity,
-                child: Image.network(
-                  character.image,
-                  fit: BoxFit.cover,
-                  errorBuilder: (context, error, stackTrace) => Container(
-                    alignment: Alignment.center,
-                    child: Icon(Icons.broken_image, color: Colors.white),
-                  ),
+                child: Stack(
+                  children: [
+                    Positioned.fill(
+                      child: Image.network(
+                        character.image,
+                        fit: BoxFit.cover,
+                        errorBuilder: (context, error, stackTrace) => Container(
+                          alignment: Alignment.center,
+                          child: Icon(Icons.broken_image, color: Colors.white),
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      top: 6,
+                      right: 6,
+                      child: FavoriteButton(characterId: character.id),
+                    ),
+                  ],
                 ),
               ),
               Container(
