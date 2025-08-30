@@ -1,16 +1,18 @@
-# rick_and_morty_flutter
+# Rick and Morty
 
-A new Flutter project.
+Esse é um aplicativo feito em Flutter que usa a Rick and Morty API para mostrar uma lista de personagens do desenho.
+Cada personagem aparece num card com a imagem e o nome.
+O Aplicativo possui uma barra de busca que filtra os personagens enquanto você digita e, se clicar em um deles, ira para outra página para ver mais detalhes.
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+## Arquitetura do Projeto
+O projeto segue uma arquitetura modularizada por camadas, visando separação de responsabilidades e facilidade de manutenção.
+Models: Modelos de dados (mapeamento JSON para Dart)
+Pages: Telas (UI e controle do estado local)
+Repositories: Acesso a dados (API REST)
+Widgets: Componentes reutilizáveis (APP Bar e cards)
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Tecnologias e Bibliotecas
+Flutter (UI)
+Dio (requisições HTTP)
+Rick and Morty API (fonte de dados)
